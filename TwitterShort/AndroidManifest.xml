@@ -26,6 +26,10 @@
             android:name="com.example.twittershort.ShortenActivity"
             android:label="@string/title_activity_shorten" >
         </activity>
+        <activity
+            android:name="com.example.twittershort.UpdateActivity"
+            android:label="@string/title_activity_update" >
+        </activity>
     </application>
 
 </manifest>

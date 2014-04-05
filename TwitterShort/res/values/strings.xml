@@ -5,9 +5,10 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_shorten">ShortenActivity</string>
-	<string name="consumer_key">N5JqcIpHKy6JKmlcUuj0DcyuB</string>
+    <string name="consumer_key">N5JqcIpHKy6JKmlcUuj0DcyuB</string>
     <string name="consumer_secret">b9zM6sRz3AEff4LeWtUidFTcS1AM5LoQANeBsdYsg8RK4E25As</string>
     <string name="access_token">40797866-CgCJ2W3tw7B0N707JyYXcwCCjPdDauTrbXFXOxLsE</string>
     <string name="access_token_secret">b2e7UVBMzqtKkhkK95aoVFG1CXNSOKGybp6Verb0jwTZB</string>
-    
+    <string name="title_activity_update">UpdateActivity</string>
+
 </resources>
