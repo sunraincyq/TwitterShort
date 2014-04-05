@@ -57,13 +57,27 @@ public class MainActivity extends Activity {
 	}
 	
 	public void onClickSave(View theButton) {
-		NotesDatabase db = new NotesDatabase(this);
+		//NotesDatabase db = new NotesDatabase(this);
 		
-		db.addNote(new Notes(et_input.getText().toString()));
-		finish();
+		//db.addNote(new Notes(et_input.getText().toString()));
 		
-		after_text.setText(db.getNote(1).toString());
+		//after_text.setText(db.getNote(1).toString());
+		
+		//finish();
+		
+		//String text=new String(note.getNote());
+		//StringBuilder sb=new StringBuilder();
+		note=new Notes(et_input.getText().toString());
+		
+		String text=note.getNote();
+		if (text.length()>140){
+			//parseText();
+		}
+		
+		String newText=text;
+		
+		after_text.setText(newText);
+		
 	}
 	
-
 }
