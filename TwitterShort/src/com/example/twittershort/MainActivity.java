@@ -39,6 +39,7 @@ public class MainActivity extends Activity {
 	TextView count1, count2;
 	final int NUM = 40;
 	Notes note;
+	ArrayList<ArrayList<Integer>> color1, color2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,9 @@ public class MainActivity extends Activity {
 		// get real time count of characters of two edit text boxes
 		et_input.addTextChangedListener(mTextEditorWatcher1);
 		after_text.addTextChangedListener(mTextEditorWatcher2);
+
+		color1 = new ArrayList<ArrayList<Integer>>();
+		color2 = new ArrayList<ArrayList<Integer>>();
 
 		et_input.addTextChangedListener(new TextWatcher() {
 
@@ -71,10 +75,9 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void afterTextChanged(Editable s) {
-				
+
 			}
 		});
-		
 
 		go.setOnClickListener(new View.OnClickListener() {
 
@@ -84,8 +87,10 @@ public class MainActivity extends Activity {
 				// count1.setText("count:"+Integer.toString(len));
 				onClickSave(findViewById(R.id.go));
 				// goToNext(findViewById(R.layout.activity_main));
-				changeColor(et_input);
-				changeColor(after_text);
+				if (color1 != null) {
+					changeColor(et_input, color1);
+					changeColor(after_text, color2);
+				}
 			}
 
 		});
@@ -101,11 +106,15 @@ public class MainActivity extends Activity {
 		});
 	}
 
-	protected void changeColor(EditText et) {
-		Spannable wordtoSpan = new SpannableString(et.getText().toString());        
-		wordtoSpan.setSpan(new ForegroundColorSpan(Color.BLUE), 1, 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+	protected void changeColor(EditText et, ArrayList<ArrayList<Integer>> arr) {
+		Spannable wordtoSpan = new SpannableString(et.getText().toString());
+		if (arr==null) return;
+		for (int i=0; i<arr.size(); i++){
+			wordtoSpan.setSpan(new ForegroundColorSpan(Color.BLUE), arr.get(i).get(0),
+					arr.get(i).get(1), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		}
 		et.setText(wordtoSpan);
-		
+
 	}
 
 	protected void onClickPost(View view) {
@@ -160,6 +169,8 @@ public class MainActivity extends Activity {
 		note = new Notes(et_input.getText().toString());
 
 		String text = note.getNote();
+		if (text == null)
+			return;
 		String newText = "";
 		if (text.length() > NUM) {
 			try {
@@ -237,6 +248,37 @@ public class MainActivity extends Activity {
 			postText += s[i] + " ";
 		}
 
+		// get the indiexes for color change
+		ArrayList<Integer> temp1 = new ArrayList<Integer>();
+		ArrayList<Integer> temp2 = new ArrayList<Integer>();
+		if (changedIndexes == null)
+			return postText;
+		for (int i = 0; i < changedIndexes.size(); i++) {
+			int index = changedIndexes.get(i);
+			int sumSize1 = 0;
+			int sumSize2 = 0;
+			if (index == 0) {
+				temp1.add(0);
+				temp1.add(size[0]);
+				temp2.add(0);
+				temp2.add(newSize[0]);
+			} else {
+				for (int j = 0; j < index; j++) {
+					sumSize1 = sumSize1 + size[j] + 1;
+				}
+				temp1.add(sumSize1);
+				temp1.add(sumSize1 + size[index]);
+
+				for (int j = 0; j < index; j++) {
+					sumSize2 = sumSize2 + newSize[j] + 1;
+				}
+				temp2.add(sumSize2);
+				temp2.add(sumSize2 + newSize[index]);
+			}
+			color1.add(temp1);
+			color2.add(temp2);
+		}
+
 		return postText;
 	}
 
@@ -264,7 +306,7 @@ public class MainActivity extends Activity {
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {
 			// This sets a textview to the current length
-			count1.setText("count:"+String.valueOf(s.length()));
+			count1.setText("count:" + String.valueOf(s.length()));
 		}
 
 		public void afterTextChanged(Editable s) {
@@ -279,7 +321,7 @@ public class MainActivity extends Activity {
 		public void onTextChanged(CharSequence s, int start, int before,
 				int count) {
 			// This sets a textview to the current length
-			count2.setText("count"+String.valueOf(s.length()));
+			count2.setText("count:" + String.valueOf(s.length()));
 		}
 
 		public void afterTextChanged(Editable s) {
