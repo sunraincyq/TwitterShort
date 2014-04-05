@@ -22,17 +22,6 @@
         <requestFocus />
     </EditText>
 
-    <Button
-        android:id="@+id/go"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp"
-        android:background="#0033ff"
-        android:text="Twort it!"
-        android:textColor="#f8f8f8" />
-
     <TextView
         android:id="@+id/count1"
         android:layout_width="wrap_content"
@@ -41,17 +30,6 @@
         android:layout_alignBottom="@+id/go"
         android:layout_alignLeft="@+id/after_text"
         android:text="count:" />
-
-    <EditText
-        android:id="@+id/after_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/et_text"
-        android:layout_alignRight="@+id/et_text"
-        android:layout_below="@+id/go"
-        android:layout_marginTop="58dp"
-        android:ems="10"
-        android:inputType="textMultiLine" />
 
     <TextView
         android:id="@+id/count2"
@@ -62,14 +40,36 @@
         android:text="count:" />
 
     <Button
+        android:id="@+id/go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="#0033ff"
+		android:textColor="#f8f8f8"
+        android:text="Twort it!" />
+
+    <EditText
+        android:id="@+id/after_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_text"
+        android:layout_alignRight="@+id/et_text"
+        android:layout_below="@+id/go"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <Button
         android:id="@+id/post2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/after_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="28dp"
         android:background="#0033ff"
-        android:text="Tweet"
-        android:textColor="#f8f8f8" />
+        android:textColor="#f8f8f8"
+        android:text="Tweet" />
 
 </RelativeLayout>

@@ -10,5 +10,7 @@
     <string name="access_token">40797866-CgCJ2W3tw7B0N707JyYXcwCCjPdDauTrbXFXOxLsE</string>
     <string name="access_token_secret">b2e7UVBMzqtKkhkK95aoVFG1CXNSOKGybp6Verb0jwTZB</string>
     <string name="title_activity_update">UpdateActivity</string>
+    <string name="count1">count:</string>
+    <string name="count2">count:</string>
 
 </resources>
