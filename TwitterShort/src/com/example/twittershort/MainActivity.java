@@ -22,6 +22,7 @@ import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.View;
@@ -40,7 +41,7 @@ public class MainActivity extends Activity {
 	final int NUM = 40;
 	Notes note;
 	ArrayList<ArrayList<Integer>> color1, color2;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,8 +55,8 @@ public class MainActivity extends Activity {
 		count2 = (TextView) findViewById(R.id.count2);
 		// get real time count of characters of two edit text boxes
 		et_input.addTextChangedListener(mTextEditorWatcher1);
-		after_text.addTextChangedListener(mTextEditorWatcher2);
-
+		after_text.addTextChangedListener(mTextEditorWatcher2);		
+		
 		color1 = new ArrayList<ArrayList<Integer>>();
 		color2 = new ArrayList<ArrayList<Integer>>();
 
@@ -106,15 +107,15 @@ public class MainActivity extends Activity {
 		});
 	}
 
-	protected void changeColor(EditText et, ArrayList<ArrayList<Integer>> arr) {
-		Spannable wordtoSpan = new SpannableString(et.getText().toString());
+	public void changeColor(EditText et, ArrayList<ArrayList<Integer>> arr) {
+		Spannable wordtoSpan = new SpannableString(et.getText());
 		if (arr==null) return;
 		for (int i=0; i<arr.size(); i++){
-			wordtoSpan.setSpan(new ForegroundColorSpan(Color.BLUE), arr.get(i).get(0),
+			wordtoSpan.setSpan(new BackgroundColorSpan(Color.BLUE), arr.get(i).get(0),
 					arr.get(i).get(1), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+			et.setText(wordtoSpan, TextView.BufferType.SPANNABLE);
+			System.out.println("i'm changing color now");
 		}
-		et.setText(wordtoSpan);
-
 	}
 
 	protected void onClickPost(View view) {
