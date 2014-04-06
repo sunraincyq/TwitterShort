@@ -17,6 +17,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:ems="10"
+        android:textSize="14sp"
         android:inputType="textMultiLine" >
 
         <requestFocus />
@@ -26,20 +27,28 @@
         android:id="@+id/go"
         android:layout_width="100dp"
         android:layout_height="40dp"
+        android:layout_alignLeft="@+id/post2"
         android:layout_below="@+id/et_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="81dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/roundcorners"
         android:text="Twort it!"
         android:textColor="#f8f8f8" />
 
     <TextView
+        android:id="@+id/count2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/post2"
+        android:layout_alignBottom="@+id/post2"
+        android:layout_alignLeft="@+id/count1"
+        android:text="count:" />
+
+    <TextView
         android:id="@+id/count1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/go"
-        android:layout_alignBottom="@+id/go"
-        android:layout_alignLeft="@+id/after_text"
+        android:layout_alignLeft="@+id/et_text"
+        android:layout_alignTop="@+id/go"
         android:text="count:" />
 
     <Button
@@ -48,7 +57,7 @@
         android:layout_height="40dp"
         android:layout_below="@+id/after_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="18dp"
         android:background="@drawable/roundcorners"
         android:text="Tweet"
         android:textColor="#f8f8f8" />
@@ -57,18 +66,12 @@
         android:id="@+id/after_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/et_text"
+        android:layout_alignLeft="@+id/count2"
         android:layout_alignRight="@+id/et_text"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/go"
+        android:layout_marginTop="120dp"
+        android:textSize="14sp"
         android:ems="10"
         android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/count2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/after_text"
-        android:layout_alignLeft="@+id/after_text"
-        android:text="count:" />
 
 </RelativeLayout>

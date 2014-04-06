@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 	Button go, post2;
 	EditText after_text;
 	TextView count1, count2;
-	final int NUM = 40;
+	final int NUM = 140;
 	Notes note;
 	ArrayList<ArrayList<Integer>> color1, color2;
 	
